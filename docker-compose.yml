@@ -1,11 +1,13 @@
 version: '3'
 services:
   jupyter:
-    image: jupyter/datascience-notebook
+    build: .
     environment:
       JUPYTER_ENABLE_LAB: 1
     ports:
       - 8888:8888
     volumes:
       - ./work:/home/jovyan/work
-    command: start-notebook.sh --NotebookApp.token=''
+    environment:
+      GRANT_SUDO: "yes"
+    command: start.sh jupyter lab --NotebookApp.token='' --NotebookApp.iopub_data_rate_limit=100000000 --NotebookApp.contents_manager_class='jupytext.TextFileContentsManager'
