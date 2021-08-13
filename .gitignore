@@ -1,6 +1,7 @@
 work/*.txt
 work/*.csv
-work/*.ipynb
+!work/template.ipynb
+!work/template.py
 work/output/*
 work/task.md
 work/.*
